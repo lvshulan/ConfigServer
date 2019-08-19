@@ -1,0 +1,17 @@
+
+#配置Eureka Server的服务名
+#  推荐在bootstrap.yml中配置 spring.application.name=服务名
+#  并且此服务名也是通过Config Server查找自己的配置文件的唯一依据
+spring:  application:    name: NeusoftAreaServiceLSL
+    
+  cloud:
+    config:
+      uri:
+      - http://localhost:9999
+
+#通过eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/指定注册中心Server的位置   
+eureka:
+  instance:    prefer-ip-address: true #以IP注册为主，不以主机名注册微服务
+  client:
+    serviceUrl:
+      defaultZone: http://lacalhost:8761/eureka/
